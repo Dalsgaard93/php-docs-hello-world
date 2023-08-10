@@ -35,7 +35,7 @@
             
             echo "Please follow this link to give consent to aiia: <br />";
             echo $connect_link;
-            //"<a href=$connect_link title='Page to go to' class='whatEver'>Anchor text</a>";
+            echo "<a href=$connect_link title='Page to go to' class='whatEver'>Anchor text</a>";
         }
     ?>
   
