@@ -49,7 +49,7 @@
   
     <form method="post">
         <input type="submit" name="button1"
-                class="button" value="Go to Aiia" onClick="window.location = ' />
+                class="button" value="Go to Aiia" />
     </form>
 </body>
   
