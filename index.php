@@ -3,7 +3,7 @@
       
 <head>
     <title>
-        1KPMG Aiia Demo
+        2KPMG Aiia Demo
     </title>
 </head>
   
@@ -24,7 +24,7 @@
         echo $_GET['code'];
 
         if(array_key_exists('button1', $_POST)) {
-            button1();
+            GenerateConnectLink();
         }
 
         function button1() {
