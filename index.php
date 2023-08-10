@@ -3,7 +3,7 @@
       
 <head>
     <title>
-        KPMG Aiia Demo
+        1KPMG Aiia Demo
     </title>
 </head>
   
@@ -30,7 +30,7 @@
         function button1() {
             echo "This is Button1 that is selected";
         }
-/*
+
         function GenerateConnectLink()
         {   
             //Generate connect-link
@@ -38,9 +38,11 @@
             $redirect_uri="https://aiia-test-site.azurewebsites.net/";
             $connect_link="https://api-sandbox.aiia.eu/v1/oauth/connect?client_id=".$client_id."&redirect_uri=".$redirect_uri."&response_type=code";
 
-            header('location : $connect_link')
+            echo '<script type="text/javascript">
+                    window.location = $connect_link
+                </script>';
         }
-*/
+
 
         
 
