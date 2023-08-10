@@ -24,6 +24,8 @@ parse_str($url_components['query'], $params);
 */
 
 // Display result
-echo ' Hi '.$_GET['code'];
+echo $_GET['code'];
+
+echo urldecode($_GET['code']);
 
 ?>
