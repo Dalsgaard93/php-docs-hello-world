@@ -3,7 +3,7 @@
       
 <head>
     <title>
-        4KPMG Aiia Demo
+        KPMG Aiia Demo
     </title>
 </head>
   
@@ -18,32 +18,31 @@
     </h4>
       
     <?php
-        echo "Code to get token pair: updated <br />";
 
-        // Display result
-        echo $_GET['code'];
-        echo '<br />';
+        if (isset($_GET['code'])) {
+            // If code is present, display that
+            echo "This is your to get token pair:";
+            echo '<br />';
+            echo $_GET['code'];
+            echo '<br />';
 
-        //Generate connect-link
-        //$client_id="aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81";
-        //$redirect_uri="https://aiia-test-site.azurewebsites.net/";
-        //$connect_link="https://api-sandbox.aiia.eu/v1/oauth/connect?client_id=".$client_id."&redirect_uri=".$redirect_uri."&response_type=code";
-
-        // header("Location:$connect_link")
-
+        } else {
+            //Generate connect-link
+            $client_id="aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81";
+            $redirect_uri="https://aiia-test-site.azurewebsites.net/";
+            $connect_link="https://api-sandbox.aiia.eu/v1/oauth/connect?client_id=".$client_id."&redirect_uri=".$redirect_uri."&response_type=code";
+            
+            echo "Please follow this link to give consent to aiia: <br />"
+            echo $connect_link;
+        }
 
         if(array_key_exists('button1', $_POST)) {
             button1();
         }
 
         function button1() {
-            //Generate connect-link
-            $client_id="aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81";
-            $redirect_uri="https://aiia-test-site.azurewebsites.net/";
-            $connect_link="https://api-sandbox.aiia.eu/v1/oauth/connect?client_id=".$client_id."&redirect_uri=".$redirect_uri."&response_type=code";
-            echo $connect_link;
-        }
-       
+            echo "Button pressed...";
+        } 
 
     ?>
   
