@@ -30,7 +30,7 @@
         function button1() {
             echo "This is Button1 that is selected";
         }
-
+/*
         function GenerateConnectLink()
         {   
             //Generate connect-link
@@ -40,7 +40,7 @@
 
             header('location : $connect_link')
         }
-
+*/
 
         
 
