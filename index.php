@@ -3,7 +3,7 @@
       
 <head>
     <title>
-        1KPMG Aiia Demo
+        15KPMG Aiia Demo
     </title>
 </head>
   
@@ -40,7 +40,7 @@
 
             // header("Location:$connect_link")
 
-            echo '$connect_link';
+            echo $connect_link;
             /*
             '<script type="text/javascript">
                     window.location = $connect_link
