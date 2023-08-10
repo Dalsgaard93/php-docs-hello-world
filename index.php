@@ -25,7 +25,7 @@
         echo $_GET['code'];
 
         if(array_key_exists('button1', $_POST)) {
-            CallAPI();
+            GenerateConnectLink();
         }
 
         function button1() {
