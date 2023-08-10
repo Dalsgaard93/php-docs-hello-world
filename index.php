@@ -3,7 +3,7 @@
       
 <head>
     <title>
-        2KPMG Aiia Demo
+        KPMG Aiia Demo
     </title>
 </head>
   
@@ -37,7 +37,7 @@
         }
 
         function button1() {
-            echo $connect_link;;
+            echo $connect_link;
         }
        
 
