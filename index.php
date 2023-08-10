@@ -3,8 +3,7 @@
       
 <head>
     <title>
-        How to call PHP function
-        on the click of a Button ?
+        AIIA Demo Jatak
     </title>
 </head>
   
