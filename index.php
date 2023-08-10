@@ -3,7 +3,7 @@
       
 <head>
     <title>
-        2KPMG Aiia Demo
+        KPMG Aiia Demo
     </title>
 </head>
   
@@ -38,9 +38,12 @@
             $redirect_uri="https://aiia-test-site.azurewebsites.net/";
             $connect_link="https://api-sandbox.aiia.eu/v1/oauth/connect?client_id=".$client_id."&redirect_uri=".$redirect_uri."&response_type=code";
 
-            echo '<script type="text/javascript">
+            echo '$connect_link';
+            /*
+            '<script type="text/javascript">
                     window.location = $connect_link
                 </script>';
+                */
         }
 
 
