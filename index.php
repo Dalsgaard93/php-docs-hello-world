@@ -3,7 +3,7 @@
       
 <head>
     <title>
-        15KPMG Aiia Demo
+        KPMG Aiia Demo
     </title>
 </head>
   
@@ -23,6 +23,15 @@
         // Display result
         echo $_GET['code'];
 
+        //Generate connect-link
+        client_id="aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81";
+        redirect_uri="https://aiia-test-site.azurewebsites.net/";
+        connect_link="https://api-sandbox.aiia.eu/v1/oauth/connect?client_id=".$client_id."&redirect_uri=".$redirect_uri."&response_type=code";
+
+        // header("Location:$connect_link")
+
+        echo $connect_link;
+
         if(array_key_exists('button1', $_POST)) {
             GenerateConnectLink();
         }
@@ -30,7 +39,7 @@
         function button1() {
             echo "This is Button1 that is selected";
         }
-
+/*
         function GenerateConnectLink()
         {   
             //Generate connect-link
@@ -40,14 +49,14 @@
 
             // header("Location:$connect_link")
 
-            echo $connect_link;
-            /*
+            //echo $connect_link;
+            
             '<script type="text/javascript">
                     window.location = $connect_link
                 </script>';
-                */
+                
         }
-
+*/
 
         
 
