@@ -3,7 +3,8 @@
       
 <head>
     <title>
-        AIIA Demo Jatak
+        How to call PHP function
+        on the click of a Button ?
     </title>
 </head>
   
@@ -18,7 +19,7 @@
     </h4>
       
     <?php
-        echo "Code to get token pair: updatedd <br />";
+        echo "Code to get token pair: updated <br />";
 
         // Display result
         echo $_GET['code'];
