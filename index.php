@@ -25,13 +25,13 @@
         echo $_GET['code'];
 
         if(array_key_exists('button1', $_POST)) {
-            GenerateConnectLink();
+            button1();
         }
 
         function button1() {
             echo "This is Button1 that is selected";
         }
-
+/*
         function GenerateConnectLink()
         {   
             //Generate connect-link
@@ -41,7 +41,7 @@
 
             header('location : $connect_link')
         }
-
+*/
 
         
 
