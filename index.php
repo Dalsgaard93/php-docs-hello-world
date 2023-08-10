@@ -3,7 +3,7 @@
       
 <head>
     <title>
-        KPMG Aiia Demo
+        2KPMG Aiia Demo
     </title>
 </head>
   
@@ -34,15 +34,8 @@
             
             echo "Please follow this link to give consent to aiia: <br />"
             echo $connect_link;
+            //"<a href=$connect_link title='Page to go to' class='whatEver'>Anchor text</a>";
         }
-
-        if(array_key_exists('button1', $_POST)) {
-            button1();
-        }
-
-        function button1() {
-            echo "Button pressed...";
-        } 
 
     ?>
   
