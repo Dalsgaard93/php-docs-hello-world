@@ -18,7 +18,8 @@
     </h4>
       
     <?php
-
+        echo "hi";
+/*
         if (isset($_GET['code'])) {
             // If code is present, display that
             echo "This is your to get token pair:";
@@ -36,7 +37,7 @@
             echo $connect_link;
             //"<a href=$connect_link title='Page to go to' class='whatEver'>Anchor text</a>";
         }
-
+*/
     ?>
   
     <form method="post">
