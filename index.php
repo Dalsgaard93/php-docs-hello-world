@@ -26,15 +26,12 @@
         echo $_GET['code'];
 
         if(array_key_exists('button1', $_POST)) {
-            button1();
+            CallAPI();
         }
 
         function button1() {
             echo "This is Button1 that is selected";
         }
-        
-        // Method: POST, PUT, GET etc
-        // Data: array("param" => "value") ==> index.php?param=value
 
         function CallAPI($method, $url, $data = false)
         {
