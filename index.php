@@ -33,7 +33,7 @@
             echo "This is Button1 that is selected";
         }
 
-        function CallAPI($method, $url, $data = false)
+        function CallAPI()
         {
             $curl = curl_init();
 
