@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
       
@@ -20,7 +19,7 @@
     </h4>
       
     <?php
-        echo "Code to get token pair: <br />";
+        echo "Code to get token pair: updated <br />";
 
         // Display result
         echo $_GET['code'];
@@ -38,7 +37,7 @@
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://api-sandbox.aiia.eu//v1/oauth/connect?client_id=aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81&scope=accounts%20offline_access%20payments%3Ainbound%20payments%3Aoutbound&redirect_uri=https%3A%2F%2Faiia-test-site.azurewebsites.net%2F&response_type=code',
+                CURLOPT_URL => 'https://api-sandbox.aiia.eu/v1/oauth/connect?client_id=aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81&scope=accounts%20offline_access%20payments%3Ainbound%20payments%3Aoutbound&redirect_uri=https%3A%2F%2Faiia-test-site.azurewebsites.net%2F&response_type=code',
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
