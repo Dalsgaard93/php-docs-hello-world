@@ -1,31 +1,45 @@
-<?php
 
-echo "Så virker det kraftedme - bøh - hallllloooooo kom frem for helvede ";
+<!DOCTYPE html>
+<html>
+      
+<head>
+    <title>
+        How to call PHP function
+        on the click of a Button ?
+    </title>
+</head>
+  
+<body style="text-align:center;">
+      
+    <h1 style="color:green;">
+        GeeksforGeeks
+    </h1>
+      
+    <h4>
+        How to call PHP function
+        on the click of a Button ?
+    </h4>
+      
+    <?php
+        echo "Code to get token pair: <br />";
 
-/*
-//if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
-    $url = "https://";   
-//else  
-    $url = "http://";   
-// Append the host(domain name, ip) to the URL.   
-$url.= $_SERVER['HTTP_HOST'];   
+        // Display result
+        echo $_GET['code'];
 
-// Append the requested resource location to the URL   
-$url.= $_SERVER['REQUEST_URI'];    
+        if(array_key_exists('button1', $_POST)) {
+            button1();
+        }
 
-echo $url;  
-
-
-//$url = 
-
-$url_components = parse_url( $url, $component = -1 )
-
-parse_str($url_components['query'], $params);
-*/
-
-// Display result
-echo $_GET['code'];
-
-echo urldecode($_GET['code']);
-
-?>
+        function button1() {
+            echo "This is Button1 that is selected";
+        }
+   
+    ?>
+  
+    <form method="post">
+        <input type="submit" name="Aiia"
+                class="button" value="Button1" />
+    </form>
+</body>
+  
+</html>
