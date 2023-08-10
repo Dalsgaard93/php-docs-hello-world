@@ -3,8 +3,7 @@
       
 <head>
     <title>
-        How to call PHP function
-        on the click of a Button ?
+        KPMG Aiia Demo
     </title>
 </head>
   
@@ -31,7 +30,7 @@
         function button1() {
             echo "This is Button1 that is selected";
         }
-/*
+
         function GenerateConnectLink()
         {   
             //Generate connect-link
@@ -41,7 +40,7 @@
 
             header('location : $connect_link')
         }
-*/
+
 
         
 
