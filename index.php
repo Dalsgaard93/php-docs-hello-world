@@ -31,31 +31,15 @@
 
         // header("Location:$connect_link")
 
-        echo $connect_link;
 
         if(array_key_exists('button1', $_POST)) {
-            GenerateConnectLink();
+            button1();
         }
 
         function button1() {
-            echo "This is Button1 that is selected";
+            echo $connect_link;;
         }
-
-        function GenerateConnectLink()
-        {   
-
-             header("Location:$connect_link")
-
-            //echo $connect_link;
-            
-            '<script type="text/javascript">
-                    window.location = $connect_link
-                </script>';
-                
-        }
-
-
-        
+       
 
     ?>
   
