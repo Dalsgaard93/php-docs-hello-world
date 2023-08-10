@@ -3,7 +3,7 @@
       
 <head>
     <title>
-        KPMG Aiia Demo
+        4KPMG Aiia Demo
     </title>
 </head>
   
@@ -25,9 +25,9 @@
         echo '<br />';
 
         //Generate connect-link
-        $client_id="aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81";
-        $redirect_uri="https://aiia-test-site.azurewebsites.net/";
-        $connect_link="https://api-sandbox.aiia.eu/v1/oauth/connect?client_id=".$client_id."&redirect_uri=".$redirect_uri."&response_type=code";
+        //$client_id="aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81";
+        //$redirect_uri="https://aiia-test-site.azurewebsites.net/";
+        //$connect_link="https://api-sandbox.aiia.eu/v1/oauth/connect?client_id=".$client_id."&redirect_uri=".$redirect_uri."&response_type=code";
 
         // header("Location:$connect_link")
 
@@ -37,6 +37,10 @@
         }
 
         function button1() {
+            //Generate connect-link
+            $client_id="aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81";
+            $redirect_uri="https://aiia-test-site.azurewebsites.net/";
+            $connect_link="https://api-sandbox.aiia.eu/v1/oauth/connect?client_id=".$client_id."&redirect_uri=".$redirect_uri."&response_type=code";
             echo $connect_link;
         }
        
