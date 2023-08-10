@@ -28,6 +28,7 @@
             echo '<br />';
 
         } else {
+            */
             //Generate connect-link
             $client_id="aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81";
             $redirect_uri="https://aiia-test-site.azurewebsites.net/";
@@ -36,8 +37,7 @@
             echo "Please follow this link to give consent to aiia: <br />"
             echo $connect_link;
             //"<a href=$connect_link title='Page to go to' class='whatEver'>Anchor text</a>";
-        }
-*/
+       // }
     ?>
   
     <form method="post">
