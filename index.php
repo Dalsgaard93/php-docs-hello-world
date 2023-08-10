@@ -19,7 +19,7 @@
     </h4>
       
     <?php
-        echo "Code to get token pair: updated <br />";
+        echo "Code to get token pair: updatedd <br />";
 
         // Display result
         echo $_GET['code'];
