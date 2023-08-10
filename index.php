@@ -12,12 +12,11 @@
 <body style="text-align:center;">
       
     <h1 style="color:green;">
-        GeeksforGeeks
+        Pisse fed aiia demo
     </h1>
       
     <h4>
-        How to call PHP function
-        on the click of a Button ?
+        
     </h4>
       
     <?php
@@ -37,8 +36,8 @@
     ?>
   
     <form method="post">
-        <input type="submit" name="Aiia"
-                class="button" value="Button1" />
+        <input type="submit" name="button1"
+                class="button" value="Go to Aiia" />
     </form>
 </body>
   
