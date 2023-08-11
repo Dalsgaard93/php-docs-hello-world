@@ -3,7 +3,7 @@
       
 <head>
     <title>
-       2KPMG Aiia Demo
+       KPMG Aiia Demo
     </title>
 </head>
   
@@ -21,7 +21,7 @@
 
         if (isset($_GET['code'])) {
             // If code is present, display that
-            echo "This is your to get token pair:";
+            echo "This is your code to get token pair:";
             echo '<br />';
             echo $_GET['code'];
             echo '<br />';
@@ -38,7 +38,12 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
             $code_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
-            echo $code_exchange;
+            if (isset($code_exchange)) {
+                echo 'code exchange exists';
+            } else {
+                echo 'no code exchange';
+            }
+            
             
             //Using "Refresh" token, refresh access-token and get a 14 day refresh-token (Refresh Token Exchange)
             $ch = curl_init();
@@ -53,13 +58,7 @@
             $refresh_token_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
             echo $refresh_token_exchange;
-/*
-            //Save credentials in database
-            $servername = "server-for-web-db.database.windows.net";
-            $username = "integrationadmin";
-            $password = "AE55965F58D2CA359FB9A8B094850537a!";
-            $dbname = "consent-token-db";
-*/
+
             try {
                 $serverName = "server-for-web-db.database.windows.net"; //serverName\instanceName
                 $connectionInfo = array( "Database"=>"consent-token-db", "UID"=>"integrationadmin", "PWD"=>"AE55965F58D2CA359FB9A8B094850537a!");
