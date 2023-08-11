@@ -3,7 +3,7 @@
       
 <head>
     <title>
-        KPMG Aiia Demo
+       1 KPMG Aiia Demo
     </title>
 </head>
   
@@ -67,6 +67,31 @@
             }else{
                 echo "Connection could not be established.<br />";
                 die( print_r( sqlsrv_errors(), true));
+            }
+
+            if( $conn === false ) {
+                die( print_r( sqlsrv_errors(), true));
+            }
+            
+            $sql = "INSERT INTO [dbo].[code_exchange_to_token_pair]
+                ([access_token]
+                ,[expires_in]
+                ,[redirect_uri]
+                ,[refresh_token]
+                ,[token_type]
+                ,[consent_id])
+            VALUES
+                ($refresh_token_exchange->access_token
+                ,$refresh_token_exchange->expires_in
+                ,$refresh_token_exchange->redirect_uri
+                ,$refresh_token_exchange->refresh_token
+                ,$refresh_token_exchange->token_type
+                ,$refresh_token_exchange->consent_id)";
+            //$params = array(1, "some data");
+            
+            $stmt = sqlsrv_query( $conn, $sql);
+            if( $stmt === false ) {
+                    die( print_r( sqlsrv_errors(), true));
             }
 /*
             $conn = new mysqli($servername, $username, $password, $dbname);
