@@ -71,7 +71,7 @@
                     die( print_r( sqlsrv_errors(), true));
                 }
     
-
+/*
             
                 $sql = "INSERT INTO [dbo].[code_exchange_to_token_pair]
                     ([access_token]
