@@ -51,29 +51,30 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
             $refresh_token_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
-
+/*
             //Save credentials in database
             $servername = "server-for-web-db.database.windows.net";
             $username = "integrationadmin";
             $password = "AE55965F58D2CA359FB9A8B094850537a!";
             $dbname = "consent-token-db";
-
-            $serverName = "server-for-web-db.database.windows.net"; //serverName\instanceName
-            $connectionInfo = array( "Database"=>"consent-token-db", "UID"=>"integrationadmin", "PWD"=>"AE55965F58D2CA359FB9A8B094850537a!");
-            $conn = sqlsrv_connect( $serverName, $connectionInfo);
-/*
-            if( $conn ) {
-                echo "Connection established.<br />";
-            }else{
-                echo "Connection could not be established.<br />";
-                die( print_r( sqlsrv_errors(), true));
-            }
 */
-            if( $conn === false ) {
-                die( print_r( sqlsrv_errors(), true));
-            }
-            
             try {
+                $serverName = "server-for-web-db.database.windows.net"; //serverName\instanceName
+                $connectionInfo = array( "Database"=>"consent-token-db", "UID"=>"integrationadmin", "PWD"=>"AE55965F58D2CA359FB9A8B094850537a!");
+                $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    /*
+                if( $conn ) {
+                    echo "Connection established.<br />";
+                }else{
+                    echo "Connection could not be established.<br />";
+                    die( print_r( sqlsrv_errors(), true));
+                }
+    */
+                if( $conn === false ) {
+                    die( print_r( sqlsrv_errors(), true));
+                }
+            
+            
                 $sql = "INSERT INTO [dbo].[code_exchange_to_token_pair]
                     ([access_token]
                     ,[expires_in]
@@ -82,13 +83,12 @@
                     ,[token_type]
                     ,[consent_id])
                 VALUES
-                    ($refresh_token_exchange->access_token
-                    ,$refresh_token_exchange->expires_in
-                    ,$refresh_token_exchange->redirect_uri
-                    ,$refresh_token_exchange->refresh_token
-                    ,$refresh_token_exchange->token_type
-                    ,$_GET['consentId'])";
-            //$params = array(1, "some data");
+                    ('$refresh_token_exchange->access_token'
+                    ,'$refresh_token_exchange->expires_in'
+                    ,'$refresh_token_exchange->redirect_uri'
+                    ,'$refresh_token_exchange->refresh_token'
+                    ,'$refresh_token_exchange->token_type'
+                    ,'$_GET['consentId']')";
             
                 $stmt = sqlsrv_query( $conn, $sql);
                 if( $stmt === false ) {
