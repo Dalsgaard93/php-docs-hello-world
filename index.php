@@ -62,14 +62,14 @@
                 $serverName = "server-for-web-db.database.windows.net"; //serverName\instanceName
                 $connectionInfo = array( "Database"=>"consent-token-db", "UID"=>"integrationadmin", "PWD"=>"AE55965F58D2CA359FB9A8B094850537a!");
                 $conn = sqlsrv_connect( $serverName, $connectionInfo);
-    /*
+    
                 if( $conn ) {
                     echo "Connection established.<br />";
                 }else{
                     echo "Connection could not be established.<br />";
                     die( print_r( sqlsrv_errors(), true));
                 }
-    */
+    
     /*
                 if( $conn === false ) {
                     die( print_r( sqlsrv_errors(), true));
