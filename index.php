@@ -3,7 +3,7 @@
       
 <head>
     <title>
-       2KPMG Aiia Demo
+       KPMG Aiia Demo
     </title>
 </head>
   
@@ -70,11 +70,7 @@
                     die( print_r( sqlsrv_errors(), true));
                 }
     
-    /*
-                if( $conn === false ) {
-                    die( print_r( sqlsrv_errors(), true));
-                }
-            
+
             
                 $sql = "INSERT INTO [dbo].[code_exchange_to_token_pair]
                     ([access_token]
@@ -90,7 +86,9 @@
                     ,'$refresh_token_exchange->refresh_token'
                     ,'$refresh_token_exchange->token_type'
                     ,'$_GET['consentId']')";
-            
+
+                echo $sql;
+            /*
                 $stmt = sqlsrv_query( $conn, $sql);
                 if( $stmt === false ) {
                         die( print_r( sqlsrv_errors(), true));
