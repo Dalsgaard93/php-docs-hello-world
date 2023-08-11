@@ -3,7 +3,7 @@
       
 <head>
     <title>
-       2KPMG Aiia Demo
+       KPMG Aiia Demo
     </title>
 </head>
   
@@ -28,6 +28,7 @@
 
             //Using "Code", retrieve access-token and 1 hour refresh-token (Code Exchange)
             $ch = curl_init();
+            echo 'api ongoing';
             curl_setopt($ch, CURLOPT_URL, "https://api-sandbox.aiia.eu/v1/oauth/token");
             curl_setopt($ch, CURLOPT_HTTPHEADER, [
                 'X-Client-Id: aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81',
@@ -35,9 +36,12 @@
                 'Content-Type: application/json'
             ]);
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(["grant_type" => "authorization_code", "redirect_uri" => "https://aiia-test-site.azurewebsites.net/", "code" => utf8_decode($_GET['code'])]));
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
-            $code_exchange = json_decode(curl_exec($ch));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $raw = curl_exec($ch);  
+            echo 'raw: ' $raw;
+            $code_exchange = json_decode($raw);
             curl_close($ch);
+            
             if (isset($code_exchange)) {
                 echo 'code exchange exists';
             } else {
