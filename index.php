@@ -3,7 +3,7 @@
       
 <head>
     <title>
-       1 KPMG Aiia Demo
+       KPMG Aiia Demo
     </title>
 </head>
   
@@ -86,7 +86,7 @@
                 ,$refresh_token_exchange->redirect_uri
                 ,$refresh_token_exchange->refresh_token
                 ,$refresh_token_exchange->token_type
-                ,$refresh_token_exchange->consent_id)";
+                ,$_GET['consentId'])";
             //$params = array(1, "some data");
             
             $stmt = sqlsrv_query( $conn, $sql);
