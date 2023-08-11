@@ -3,7 +3,7 @@
       
 <head>
     <title>
-        2KPMG Aiia Demo
+        KPMG Aiia Demo
     </title>
 </head>
   
@@ -25,7 +25,7 @@
             echo '<br />';
             echo $_GET['code'];
             echo '<br />';
-
+/*
             //Using "Code", retrieve access-token and 1 hour refresh-token (Code Exchange)
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, "https://api-sandbox.aiia.eu/v1/oauth/token");
@@ -52,7 +52,29 @@
             $refresh_token_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
 
+            //Save credentials in database
+            $servername = "server-for-web-db.database.windows.net";
+            $username = "integrationadmin";
+            $password = "AE55965F58D2CA359FB9A8B094850537a!";
+            $dbname = "consent-token-db";
+*/
+            $serverName = "server-for-web-db.database.windows.net"; //serverName\instanceName
+            $connectionInfo = array( "Database"=>"consent-token-db", "UID"=>"integrationadmin", "PWD"=>"AE55965F58D2CA359FB9A8B094850537a!");
+            $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
+            if( $conn ) {
+                echo "Connection established.<br />";
+            }else{
+                echo "Connection could not be established.<br />";
+                die( print_r( sqlsrv_errors(), true));
+            }
+/*
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            $sql = "INSERT INTO dbo.code_e (Created,Host,ConsentID,AccessToken,RefreshToken,Client) VALUES (now(),'Frontpage','".$_GET['consentId']."','".$refresh_token_exchange->access_token."','".$refresh_token_exchange->refresh_token."','https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]')";
+            echo($sql);
+            $conn->query($sql);
+            $conn->close();
+*/
         } else {
    
             //Generate connect-link
