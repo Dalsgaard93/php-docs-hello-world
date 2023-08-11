@@ -38,6 +38,7 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
             $code_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
+            echo $code_exchange;
             
             //Using "Refresh" token, refresh access-token and get a 14 day refresh-token (Refresh Token Exchange)
             $ch = curl_init();
@@ -51,6 +52,7 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
             $refresh_token_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
+            echo $refresh_token_exchange;
 /*
             //Save credentials in database
             $servername = "server-for-web-db.database.windows.net";
