@@ -38,7 +38,8 @@
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(["grant_type" => "authorization_code", "redirect_uri" => "https://aiia-test-site.azurewebsites.net/", "code" => utf8_decode($_GET['code'])]));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $raw = curl_exec($ch);  
-            echo 'raw: ' $raw;
+            echo 'raw: ' ;
+            echo $raw;
             $code_exchange = json_decode($raw);
             curl_close($ch);
             
