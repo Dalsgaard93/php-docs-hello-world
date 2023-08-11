@@ -70,6 +70,7 @@
                     die( print_r( sqlsrv_errors(), true));
                 }
     */
+    /*
                 if( $conn === false ) {
                     die( print_r( sqlsrv_errors(), true));
                 }
@@ -94,6 +95,7 @@
                 if( $stmt === false ) {
                         die( print_r( sqlsrv_errors(), true));
                 }
+    */
             } catch (Exception $e) {
                 echo 'Caught exception: ',  $e->getMessage(), "\n";
             }
