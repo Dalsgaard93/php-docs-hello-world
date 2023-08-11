@@ -3,7 +3,7 @@
       
 <head>
     <title>
-       2KPMG Aiia Demo
+       KPMG Aiia Demo
     </title>
 </head>
   
@@ -54,9 +54,9 @@
             curl_setopt($ch, CURLOPT_HTTPHEADER, [
                 'X-Client-Id: aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81',
                 'X-Client-Secret: 6e6c150ebcb36f90e8cd5c750c8c0ca42a8751b7d63f0110a465115dff4dec86'
-                //'Content-Type: application/json'
+                'Content-Type: application/json'
             ]);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(["grant_type" => "authorization_code", "redirect_uri" => "https://aiia-test-site.azurewebsites.net/", "code" => utf8_decode($_GET['code'])]));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(["grant_type" => "authorization_code", "code" => utf8_decode($_GET['code'])]));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $code_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
