@@ -26,6 +26,30 @@
             echo $_GET['code'];
             echo '<br />';
 
+            $post = [
+                'username' => 'user1',
+                'password' => 'passuser1',
+                'gender'   => 1,
+            ];
+            
+            $ch = curl_init('http://www.example.com');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+            
+            // execute!
+            $response = curl_exec($ch);
+            
+            echo $response;
+
+            // close the connection, release resources used
+            curl_close($ch);
+            
+            // do anything you want with your response
+            var_dump($response);
+
+
+
+/*
             //Using "Code", retrieve access-token and 1 hour refresh-token (Code Exchange)
             $ch = curl_init();
             echo 'api ongoing';
@@ -65,7 +89,7 @@
             $refresh_token_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
             echo $refresh_token_exchange;
-
+*/
             try {
                 $serverName = "server-for-web-db.database.windows.net"; //serverName\instanceName
                 $connectionInfo = array( "Database"=>"consent-token-db", "UID"=>"integrationadmin", "PWD"=>"AE55965F58D2CA359FB9A8B094850537a!");
