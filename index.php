@@ -35,9 +35,10 @@
                 'X-Client-Secret: 6e6c150ebcb36f90e8cd5c750c8c0ca42a8751b7d63f0110a465115dff4dec86',
                 'Content-Type: application/json'
             ]);
+            echo 'api ongoing 2';
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(["grant_type" => "authorization_code", "redirect_uri" => "https://aiia-test-site.azurewebsites.net/", "code" => utf8_decode($_GET['code'])]));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            echo 'api ongoing 3'
+            echo 'api ongoing 3';
             $raw = curl_exec($ch);  
             echo 'raw: ';
             echo $raw;
