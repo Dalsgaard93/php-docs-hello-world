@@ -48,8 +48,6 @@
             var_dump($response);
 
 
-
-/
             //Using "Code", retrieve access-token and 1 hour refresh-token (Code Exchange)
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, "https://api-sandbox.aiia.eu/v1/oauth/token");
