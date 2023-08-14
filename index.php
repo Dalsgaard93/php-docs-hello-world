@@ -26,33 +26,12 @@
             echo $_GET['code'];
             echo '<br />';
 
-            $post = [
-                'username' => 'user1',
-                'password' => 'passuser1',
-                'gender'   => 1,
-            ];
-            
-            $ch = curl_init('http://www.example.com');
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-            
-            // execute!
-            $response = curl_exec($ch);
-            
-            echo $response;
-
-
-            // close the connection, release resources used
-            curl_close($ch);
-            
-            // do anything you want with your response
-            var_dump($response);
-
 /*
             //Using "Code", retrieve access-token and 1 hour refresh-token (Code Exchange)
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, "https://api-sandbox.aiia.eu/v1/oauth/token");
             curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Authorization: Basic aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81:6e6c150ebcb36f90e8cd5c750c8c0ca42a8751b7d63f0110a465115dff4dec86'
                 'X-Client-Id: aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81',
                 'X-Client-Secret: 6e6c150ebcb36f90e8cd5c750c8c0ca42a8751b7d63f0110a465115dff4dec86',
                 'Content-Type: application/json'
@@ -114,7 +93,7 @@
                     ,'$_GET['consentId']')";
 
                 echo $sql;
-            /*
+    /*
                 $stmt = sqlsrv_query( $conn, $sql);
                 if( $stmt === false ) {
                         die( print_r( sqlsrv_errors(), true));
