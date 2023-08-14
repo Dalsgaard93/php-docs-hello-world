@@ -40,6 +40,7 @@
             $response = curl_exec($ch);
             
             echo $response;
+            
 
             // close the connection, release resources used
             curl_close($ch);
