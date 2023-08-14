@@ -40,7 +40,7 @@
             $response = curl_exec($ch);
             
             echo $response;
-            
+
 
             // close the connection, release resources used
             curl_close($ch);
@@ -48,7 +48,7 @@
             // do anything you want with your response
             var_dump($response);
 
-
+/*
             //Using "Code", retrieve access-token and 1 hour refresh-token (Code Exchange)
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, "https://api-sandbox.aiia.eu/v1/oauth/token");
@@ -83,7 +83,7 @@
             $refresh_token_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
             echo $refresh_token_exchange;
-
+*/
             try {
                 $serverName = "server-for-web-db.database.windows.net"; //serverName\instanceName
                 $connectionInfo = array( "Database"=>"consent-token-db", "UID"=>"integrationadmin", "PWD"=>"AE55965F58D2CA359FB9A8B094850537a!");
@@ -124,13 +124,7 @@
                 echo 'Caught exception: ',  $e->getMessage(), "\n";
             }
 
-/*
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            $sql = "INSERT INTO dbo.code_e (Created,Host,ConsentID,AccessToken,RefreshToken,Client) VALUES (now(),'Frontpage','".$_GET['consentId']."','".$refresh_token_exchange->access_token."','".$refresh_token_exchange->refresh_token."','https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]')";
-            echo($sql);
-            $conn->query($sql);
-            $conn->close();
-*/
+
         } else {
    
             //Generate connect-link
