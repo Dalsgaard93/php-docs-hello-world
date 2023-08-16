@@ -61,7 +61,7 @@
                 echo 'no refresh token';
             }
             
-
+/*
             /////////////// Write to SQL ///////////////
 
             $server = "server-for-web-db.database.windows.net"; //serverName\instanceName
@@ -88,7 +88,7 @@
                 echo "Error: " . $e->getMessage();
             }
 
-            
+        */    
 
         } else {
    
