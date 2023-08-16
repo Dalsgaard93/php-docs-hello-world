@@ -3,7 +3,7 @@
       
 <head>
     <title>
-       KPMG Aiia Demo
+       KPMG Aiia Demo!
     </title>
 </head>
   
@@ -26,8 +26,6 @@
             echo $_GET['code'];
             echo '<br />';
 
-            
-
             //Using "Code", retrieve access-token and 1 hour refresh-token (Code Exchange)
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, "https://api-sandbox.aiia.eu/v1/oauth/token");
@@ -39,20 +37,17 @@
             $code_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
 
-            
             if (isset($code_exchange)) {
                 echo 'code exchange exists';
             } else {
                 echo 'no code exchange';
             }
             
-            /*
             //Using "Refresh" token, refresh access-token and get a 14 day refresh-token (Refresh Token Exchange)
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, "https://api-sandbox.aiia.eu/v1/oauth/token");
             curl_setopt($ch, CURLOPT_HTTPHEADER, [
-                'X-Client-Id: aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81',
-                'X-Client-Secret: 6e6c150ebcb36f90e8cd5c750c8c0ca42a8751b7d63f0110a465115dff4dec86',
+                'Authorization: Basic YWlpYXBvYy05MmNkN2MyNi0zY2E2LTQwNGQtOWIxYy0zZGVlMTFhMTVjODE6NmU2YzE1MGViY2IzNmY5MGU4Y2Q1Yzc1MGM4YzBjYTQyYTg3NTFiN2Q2M2YwMTEwYTQ2NTExNWRmZjRkZWM4Ng==',
                 'Content-Type: application/json'
             ]);
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(["grant_type" => "refresh_token", "refresh_token" => $code_exchange->refresh_token]));
@@ -60,7 +55,9 @@
             $refresh_token_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
             echo $refresh_token_exchange;
+            
 
+            /////////////// Write to SQL ///////////////
             try {
                 $serverName = "server-for-web-db.database.windows.net"; //serverName\instanceName
                 $connectionInfo = array( "Database"=>"consent-token-db", "UID"=>"integrationadmin", "PWD"=>"AE55965F58D2CA359FB9A8B094850537a!");
@@ -73,35 +70,32 @@
                     die( print_r( sqlsrv_errors(), true));
                 }
     
-
             
-                $sql = "INSERT INTO [dbo].[code_exchange_to_token_pair]
-                    ([access_token]
-                    ,[expires_in]
-                    ,[redirect_uri]
-                    ,[refresh_token]
-                    ,[token_type]
-                    ,[consent_id])
-                VALUES
-                    ('$refresh_token_exchange->access_token'
-                    ,'$refresh_token_exchange->expires_in'
-                    ,'$refresh_token_exchange->redirect_uri'
-                    ,'$refresh_token_exchange->refresh_token'
-                    ,'$refresh_token_exchange->token_type'
-                    ,'$_GET['consentId']')";
-
-                echo $sql;
-    
-                $stmt = sqlsrv_query( $conn, $sql);
-                if( $stmt === false ) {
-                        die( print_r( sqlsrv_errors(), true));
+                try {
+                    $pdo = new PDO("sqlsrv:Server=$server;Database=$database", $username, $password);
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    
+                    $access_token = '$refresh_token_exchange->access_token'; // Replace with actual access token
+                    $refresh_token = '$refresh_token_exchange->refresh_token'; // Replace with actual refresh token
+                    
+                    $query = "INSERT INTO [dbo].[token_table_aiia] ([access_token], [refresh_token]) VALUES (:access_token, :refresh_token)";
+                    $stmt = $pdo->prepare($query);
+                    $stmt->bindParam(':access_token', $access_token, PDO::PARAM_STR);
+                    $stmt->bindParam(':refresh_token', $refresh_token, PDO::PARAM_STR);
+                    
+                    $stmt->execute();
+                    
+                    echo "Data inserted successfully.";
+                } catch (PDOException $e) {
+                    echo "Error: " . $e->getMessage();
                 }
-    
+
+               
             } catch (Exception $e) {
                 echo 'Caught exception: ',  $e->getMessage(), "\n";
             }
         
-            */
+            
 
         } else {
    
