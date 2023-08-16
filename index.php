@@ -3,7 +3,7 @@
       
 <head>
     <title>
-       KPMG Aiia Demo!
+       KPMG Aiia Demo
     </title>
 </head>
   
@@ -32,7 +32,7 @@
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, "https://api-sandbox.aiia.eu/v1/oauth/token");
             curl_setopt($ch, CURLOPT_HTTPHEADER, [
-                'Authorization: Basic aiiapoc-92cd7c26-3ca6-404d-9b1c-3dee11a15c81:6e6c150ebcb36f90e8cd5c750c8c0ca42a8751b7d63f0110a465115dff4dec86'
+                'Authorization: Basic YWlpYXBvYy05MmNkN2MyNi0zY2E2LTQwNGQtOWIxYy0zZGVlMTFhMTVjODE6NmU2YzE1MGViY2IzNmY5MGU4Y2Q1Yzc1MGM4YzBjYTQyYTg3NTFiN2Q2M2YwMTEwYTQ2NTExNWRmZjRkZWM4Ng=='
             ]);
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(["grant_type" => "authorization_code", "redirect_uri" => "https://aiia-test-site.azurewebsites.net/", "code" => utf8_decode($_GET['code'])]));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
