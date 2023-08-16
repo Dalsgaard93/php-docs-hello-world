@@ -3,7 +3,7 @@
       
 <head>
     <title>
-       KPMG Aiia Demo!
+       KPMG Aiia Demo
     </title>
 </head>
   
@@ -39,13 +39,13 @@
             $code_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
 
-            
+            /*
             if (isset($code_exchange)) {
                 echo 'code exchange exists';
             } else {
                 echo 'no code exchange';
             }
-            
+            */
             
             //Using "Refresh" token, refresh access-token and get a 14 day refresh-token (Refresh Token Exchange)
             $ch = curl_init();
@@ -58,7 +58,7 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
             $refresh_token_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
-            echo $refresh_token_exchange;
+
 
             try {
                 $serverName = "server-for-web-db.database.windows.net"; //serverName\instanceName
@@ -67,63 +67,25 @@
     
                 if( $conn ) {
                     echo "Connection established.<br />";
+               
+
+                    $sql = "INSERT INTO [dbo].[token_table_aiia]
+                                ([access_token]
+                                ,[refresh_token])
+                            VALUES
+                                ('$refresh_token_exchange->access_token'
+                                ,'$refresh_token_exchange->refresh_token')";
+
+                    $stmt = sqlsrv_query( $conn, $sql);
+                    if( $stmt === false ) {
+                            die( print_r( sqlsrv_errors(), true));
+                    }
+    
                 }else{
                     echo "Connection could not be established.<br />";
                     die( print_r( sqlsrv_errors(), true));
                 }
-    
-            
-                try {
-                    $pdo = new PDO("sqlsrv:Server=$server;Database=$database", $username, $password);
-                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    
-                    $access_token = '$refresh_token_exchange->access_token'; // Replace with actual access token
-                    $refresh_token = '$refresh_token_exchange->refresh_token'; // Replace with actual refresh token
-                    
-                    $query = "INSERT INTO [dbo].[token_table_aiia] ([access_token], [refresh_token]) VALUES (:access_token, :refresh_token)";
-                    $stmt = $pdo->prepare($query);
-                    $stmt->bindParam(':access_token', $access_token, PDO::PARAM_STR);
-                    $stmt->bindParam(':refresh_token', $refresh_token, PDO::PARAM_STR);
-                    
-                    $stmt->execute();
-                    
-                    echo "Data inserted successfully.";
-                } catch (PDOException $e) {
-                    echo "Error: " . $e->getMessage();
-                }
 
-
-
-                $sql = "INSERT INTO [dbo].[token_table_aiia]
-                            ([access_token]
-                            ,[refresh_token])
-                        VALUES
-                            ('$refresh_token_exchange->access_token'
-                            ,'$refresh_token_exchange->refresh_token')";
-
-/*
-                $sql = "INSERT INTO [dbo].[code_exchange_to_token_pair]
-                    ([access_token]
-                    ,[expires_in]
-                    ,[redirect_uri]
-                    ,[refresh_token]
-                    ,[token_type]
-                    ,[consent_id])
-                VALUES
-                    ('$refresh_token_exchange->access_token'
-                    ,'$refresh_token_exchange->expires_in'
-                    ,'$refresh_token_exchange->redirect_uri'
-                    ,'$refresh_token_exchange->refresh_token'
-                    ,'$refresh_token_exchange->token_type'
-                    ,'$_GET['consentId']')";
-
-                echo $sql;
-    */
-                $stmt = sqlsrv_query( $conn, $sql);
-                if( $stmt === false ) {
-                        die( print_r( sqlsrv_errors(), true));
-                }
-    
             } catch (Exception $e) {
                 echo 'Caught exception: ',  $e->getMessage(), "\n";
             }
