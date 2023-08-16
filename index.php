@@ -26,6 +26,7 @@
             echo $_GET['code'];
             echo '<br />';
 
+            /*
 
             //Using "Code", retrieve access-token and 1 hour refresh-token (Code Exchange)
             $ch = curl_init();
@@ -44,7 +45,7 @@
             } else {
                 echo 'no code exchange';
             }
- /*           
+            
             
             //Using "Refresh" token, refresh access-token and get a 14 day refresh-token (Refresh Token Exchange)
             $ch = curl_init();
@@ -59,7 +60,7 @@
             $refresh_token_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
             echo $refresh_token_exchange;
-*/
+
             try {
                 $serverName = "server-for-web-db.database.windows.net"; //serverName\instanceName
                 $connectionInfo = array( "Database"=>"consent-token-db", "UID"=>"integrationadmin", "PWD"=>"AE55965F58D2CA359FB9A8B094850537a!");
@@ -72,7 +73,7 @@
                     die( print_r( sqlsrv_errors(), true));
                 }
     
-/*
+
             
                 $sql = "INSERT INTO [dbo].[code_exchange_to_token_pair]
                     ([access_token]
@@ -90,16 +91,16 @@
                     ,'$_GET['consentId']')";
 
                 echo $sql;
-    /*
+    
                 $stmt = sqlsrv_query( $conn, $sql);
                 if( $stmt === false ) {
                         die( print_r( sqlsrv_errors(), true));
                 }
-    */
+    
             } catch (Exception $e) {
                 echo 'Caught exception: ',  $e->getMessage(), "\n";
             }
-
+        */
 
         } else {
    
