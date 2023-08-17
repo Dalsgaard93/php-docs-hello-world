@@ -3,7 +3,7 @@
       
 <head>
     <title>
-       !KPMG Aiia Demo!
+       KPMG Aiia Demo!
     </title>
 </head>
   
@@ -63,6 +63,7 @@
 
             if (isset($refresh_token_exchange)) {
                 echo 'refresh token exists';
+                echo $refresh_token_exchange->access_token;
             } else {
                 echo 'no refresh token';
             }
@@ -80,8 +81,8 @@
                                 ([access_token]
                                 ,[refresh_token])
                             VALUES
-                                ($refresh_token_exchange['access_token']
-                                ,$refresh_token_exchange['refresh_token'])";
+                                ($refresh_token_exchange->access_token
+                                ,$refresh_token_exchange->refresh_token)";
 
                     $stmt = sqlsrv_query( $conn, $sql);
                     if( $stmt === false ) {
