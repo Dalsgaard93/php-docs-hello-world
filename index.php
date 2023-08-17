@@ -3,7 +3,7 @@
       
 <head>
     <title>
-       KPMG Aiia Demo!
+       !KPMG Aiia Demo!
     </title>
 </head>
   
@@ -24,6 +24,7 @@
             echo "This is your code to get token pair:";
             echo '<br />';
             echo $_GET['code'];
+            echo '<br />';
             echo utf8_decode($_GET['code']);
             echo '<br />';
 
@@ -46,7 +47,7 @@
             if (isset($code_exchange)) {
                 echo 'code exchange exists';
                 echo '<br />';
-                echo $code_exchange->access_token;
+                echo '$code_exchange->access_token';
                 echo '<br />';
             } else {
                 echo 'no code exchange';
