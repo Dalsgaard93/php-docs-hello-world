@@ -3,7 +3,7 @@
       
 <head>
     <title>
-       KPMG Aiia Demo!
+       !KPMG Aiia Demo!
     </title>
 </head>
   
@@ -61,6 +61,11 @@
             $refresh_token_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
 
+            if (isset($refresh_token_exchange)) {
+                echo 'refresh token exists';
+            } else {
+                echo 'no refresh token';
+            }
 
             try {
                 $serverName = "server-for-web-db.database.windows.net"; //serverName\instanceName
