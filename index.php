@@ -3,7 +3,7 @@
       
 <head>
     <title>
-       !KPMG Aiia Demo!
+       KPMG Aiia Demo!
     </title>
 </head>
   
@@ -38,7 +38,7 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $code_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
-            echo '$code_exchange[0]'
+            //echo '$code_exchange[0]'
             
 
             /*
