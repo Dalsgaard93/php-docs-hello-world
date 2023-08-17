@@ -38,7 +38,7 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $code_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
-            echo '$code_exchange['access_token']'
+            echo '$code_exchange[0]'
             
 
             /*
