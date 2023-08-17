@@ -69,7 +69,7 @@
                 if( $conn ) {
                     echo "Connection established.<br />";
                
-                    
+                    /*
                     $sql = "INSERT INTO [dbo].[token_table_aiia]
                                 ([access_token]
                                 ,[refresh_token])
@@ -81,7 +81,7 @@
                     if( $stmt === false ) {
                             die( print_r( sqlsrv_errors(), true));
                     }
-    
+    */
                 }else{
                     echo "Connection could not be established.<br />";
                     die( print_r( sqlsrv_errors(), true));
