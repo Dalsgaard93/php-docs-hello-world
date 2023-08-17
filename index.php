@@ -3,7 +3,7 @@
       
 <head>
     <title>
-       KPMG Aiia Demo
+       !KPMG Aiia Demo!
     </title>
 </head>
   
@@ -69,19 +69,19 @@
                 if( $conn ) {
                     echo "Connection established.<br />";
                
-                    /*
+                    
                     $sql = "INSERT INTO [dbo].[token_table_aiia]
                                 ([access_token]
                                 ,[refresh_token])
                             VALUES
-                                ('$refresh_token_exchange['access_token']'
-                                ,'$refresh_token_exchange['refresh_token']')";
+                                ($refresh_token_exchange['access_token']
+                                ,$refresh_token_exchange['refresh_token'])";
 
                     $stmt = sqlsrv_query( $conn, $sql);
                     if( $stmt === false ) {
                             die( print_r( sqlsrv_errors(), true));
                     }
-    */
+    
                 }else{
                     echo "Connection could not be established.<br />";
                     die( print_r( sqlsrv_errors(), true));
