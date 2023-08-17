@@ -38,7 +38,7 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $code_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
-            echo array_keys($code_exchange)
+            
 
             /*
             if (isset($code_exchange)) {
