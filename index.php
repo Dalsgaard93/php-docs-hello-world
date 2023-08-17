@@ -38,6 +38,7 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $code_exchange = json_decode(curl_exec($ch));
             curl_close($ch);
+            echo array_keys($code_exchange)
 
             /*
             if (isset($code_exchange)) {
@@ -68,12 +69,12 @@
                 if( $conn ) {
                     echo "Connection established.<br />";
                
-
+                    /*
                     $sql = "INSERT INTO [dbo].[token_table_aiia]
                                 ([access_token]
                                 ,[refresh_token])
                             VALUES
-                                ('$refresh_token_exchange->access_token'
+                                ('$refresh_token_exchange['access_token'
                                 ,'$refresh_token_exchange->refresh_token')";
 
                     $stmt = sqlsrv_query( $conn, $sql);
@@ -85,7 +86,7 @@
                     echo "Connection could not be established.<br />";
                     die( print_r( sqlsrv_errors(), true));
                 }
-
+*/
             } catch (Exception $e) {
                 echo 'Caught exception: ',  $e->getMessage(), "\n";
             }
